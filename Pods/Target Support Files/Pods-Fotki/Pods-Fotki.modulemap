@@ -1,0 +1,6 @@
+framework module Pods_Fotki {
+  umbrella header "Pods-Fotki-umbrella.h"
+
+  export *
+  module * { export * }
+}

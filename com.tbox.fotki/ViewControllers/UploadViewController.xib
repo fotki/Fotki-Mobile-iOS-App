@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadViewController" customModule="Fotki" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="QRp-Og-fKq" id="QpM-Cb-vRS"/>
+                <outlet property="multipleFileProgressLabel" destination="GIl-c1-MhL" id="pZf-oc-V1q"/>
+                <outlet property="multipleFileProgressView" destination="DtX-tg-41e" id="Z2y-8L-PoV"/>
+                <outlet property="noUploadLabel" destination="5na-uH-NrT" id="1tZ-s0-mbq"/>
+                <outlet property="retryView" destination="atj-vF-Pz5" id="HoE-Ix-KE9"/>
+                <outlet property="scrollView" destination="Is0-I4-hWb" id="Nhd-Co-f6h"/>
+                <outlet property="singleFileProgressLabel" destination="CpA-aR-Bik" id="JRS-kV-wxY"/>
+                <outlet property="singleFileProgressView" destination="ZpG-Yq-BMp" id="c9y-vu-Vbp"/>
+                <outlet property="startUpload" destination="gko-NZ-EB1" id="0AU-Dc-AL8"/>
+                <outlet property="uploadView" destination="Nms-Eh-0zs" id="j0M-B2-ndk"/>
+                <outlet property="uploadbutton" destination="tk7-sm-Chw" id="AVf-Gf-XlI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nms-Eh-0zs">
+                    <rect key="frame" x="0.0" y="177" width="320" height="126"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please upload pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5na-uH-NrT">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tk7-sm-Chw">
+                            <rect key="frame" x="50" y="40" width="220" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Upload photos and videos"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="openPhotoGallery:" destination="-1" eventType="touchUpInside" id="TJo-Nk-y2g"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="J55-Ix-VfN"/>
+                        <constraint firstAttribute="height" constant="126" id="w9P-Di-kb4"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-I4-hWb">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Uploading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gko-NZ-EB1">
+                            <rect key="frame" x="92" y="78" width="135" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JT-tj-33z">
+                            <rect key="frame" x="104" y="109" width="110" height="121"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album-icon" translatesAutoresizingMaskIntoConstraints="NO" id="QRp-Og-fKq">
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="121"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="QRp-Og-fKq" firstAttribute="width" secondItem="2JT-tj-33z" secondAttribute="width" id="IpR-uV-ihd"/>
+                                <constraint firstItem="QRp-Og-fKq" firstAttribute="height" secondItem="2JT-tj-33z" secondAttribute="height" id="TGx-iY-zEv"/>
+                                <constraint firstItem="QRp-Og-fKq" firstAttribute="centerX" secondItem="2JT-tj-33z" secondAttribute="centerX" id="Unx-ML-L86"/>
+                                <constraint firstAttribute="width" constant="110" id="o5v-Wf-IZ9"/>
+                                <constraint firstItem="QRp-Og-fKq" firstAttribute="centerY" secondItem="2JT-tj-33z" secondAttribute="centerY" id="pv2-ce-RoD"/>
+                                <constraint firstAttribute="height" constant="121" id="wqe-or-o0A"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBN-Rr-ucg">
+                            <rect key="frame" x="119" y="237" width="80" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="09n-kE-Dfl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZpG-Yq-BMp">
+                            <rect key="frame" x="16" y="274" width="285" height="2"/>
+                        </progressView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpA-aR-Bik">
+                            <rect key="frame" x="131" y="292" width="56" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="56" id="61a-fj-cVE"/>
+                                <constraint firstAttribute="height" constant="17" id="LtF-BQ-C2v"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="DtX-tg-41e">
+                            <rect key="frame" x="16" y="322" width="285" height="2"/>
+                        </progressView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 out of 1 file have been uploaded" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIl-c1-MhL">
+                            <rect key="frame" x="51" y="339" width="215" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="6gN-Km-xDO"/>
+                                <constraint firstAttribute="width" constant="215" id="cp5-7R-NM3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ZpG-Yq-BMp" firstAttribute="trailing" secondItem="DtX-tg-41e" secondAttribute="trailing" id="2ko-vf-IOA"/>
+                        <constraint firstItem="eBN-Rr-ucg" firstAttribute="top" secondItem="2JT-tj-33z" secondAttribute="bottom" constant="7" id="6fc-qo-cYR"/>
+                        <constraint firstItem="2JT-tj-33z" firstAttribute="centerX" secondItem="gko-NZ-EB1" secondAttribute="centerX" id="7D9-bz-sqg"/>
+                        <constraint firstItem="2JT-tj-33z" firstAttribute="top" secondItem="gko-NZ-EB1" secondAttribute="bottom" constant="10" id="Awp-hz-9eY"/>
+                        <constraint firstItem="CpA-aR-Bik" firstAttribute="top" secondItem="ZpG-Yq-BMp" secondAttribute="bottom" constant="16" id="D1M-by-fed"/>
+                        <constraint firstItem="GIl-c1-MhL" firstAttribute="top" secondItem="DtX-tg-41e" secondAttribute="bottom" constant="15" id="GV4-zX-Yjv"/>
+                        <constraint firstAttribute="bottom" secondItem="GIl-c1-MhL" secondAttribute="bottom" constant="5" id="KHl-sL-23c"/>
+                        <constraint firstItem="ZpG-Yq-BMp" firstAttribute="top" secondItem="eBN-Rr-ucg" secondAttribute="bottom" constant="21" id="KuI-Ln-5br"/>
+                        <constraint firstItem="CpA-aR-Bik" firstAttribute="centerX" secondItem="DtX-tg-41e" secondAttribute="centerX" id="PsI-vG-z6E"/>
+                        <constraint firstItem="ZpG-Yq-BMp" firstAttribute="leading" secondItem="Is0-I4-hWb" secondAttribute="leading" constant="16" id="QEe-T0-FZU"/>
+                        <constraint firstItem="ZpG-Yq-BMp" firstAttribute="leading" secondItem="DtX-tg-41e" secondAttribute="leading" id="fg9-so-cdS"/>
+                        <constraint firstItem="eBN-Rr-ucg" firstAttribute="centerX" secondItem="ZpG-Yq-BMp" secondAttribute="centerX" id="hWK-bN-z7u"/>
+                        <constraint firstItem="gko-NZ-EB1" firstAttribute="top" secondItem="Is0-I4-hWb" secondAttribute="top" constant="78" id="jec-RR-6mo"/>
+                        <constraint firstItem="DtX-tg-41e" firstAttribute="top" secondItem="CpA-aR-Bik" secondAttribute="bottom" constant="13" id="o1z-xq-nw8"/>
+                        <constraint firstAttribute="trailing" secondItem="ZpG-Yq-BMp" secondAttribute="trailing" constant="16" id="o6d-t6-cBP"/>
+                        <constraint firstItem="eBN-Rr-ucg" firstAttribute="centerX" secondItem="2JT-tj-33z" secondAttribute="centerX" id="qd0-V1-TA6"/>
+                        <constraint firstItem="DtX-tg-41e" firstAttribute="centerX" secondItem="GIl-c1-MhL" secondAttribute="centerX" id="rMh-CJ-JVo"/>
+                        <constraint firstItem="gko-NZ-EB1" firstAttribute="centerX" secondItem="Is0-I4-hWb" secondAttribute="centerX" id="s17-jw-NTc"/>
+                    </constraints>
+                </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atj-vF-Pz5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet connection. Make sure that Wi-fi or cellular mobile data is turned on, then try again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwa-fI-sQg">
+                            <rect key="frame" x="22" y="158" width="278" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-Ym-dRH">
+                            <rect key="frame" x="120" y="240" width="81" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <state key="normal" title="Retry"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryNetworkCall:" destination="-1" eventType="touchUpInside" id="1RZ-U2-09l"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nms-Eh-0zs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="58o-dS-JdI"/>
+                <constraint firstItem="Nms-Eh-0zs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VgA-Od-lzF"/>
+                <constraint firstItem="Nms-Eh-0zs" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hn7-FR-N3o"/>
+                <constraint firstItem="Is0-I4-hWb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ig1-zy-Dep"/>
+                <constraint firstAttribute="trailing" secondItem="Nms-Eh-0zs" secondAttribute="trailing" id="iio-AX-NrC"/>
+                <constraint firstAttribute="trailing" secondItem="Is0-I4-hWb" secondAttribute="trailing" id="l8H-bk-1vs"/>
+                <constraint firstAttribute="bottom" secondItem="Is0-I4-hWb" secondAttribute="bottom" id="uno-7m-zLe"/>
+                <constraint firstItem="Is0-I4-hWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vJp-uK-Wc3"/>
+            </constraints>
+            <point key="canvasLocation" x="-403" y="-54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="album-icon" width="323" height="323"/>
+    </resources>
+</document>

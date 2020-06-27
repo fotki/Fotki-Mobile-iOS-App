@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumViewController" customModule="Fotki" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="7ia-y8-29p" id="077-sT-pcc"/>
+                <outlet property="albumDetail" destination="Hfi-vA-Kid" id="ee5-co-kvF"/>
+                <outlet property="albumName" destination="xhS-ne-0dY" id="b55-J0-xww"/>
+                <outlet property="collectionView" destination="QdD-3c-9Kz" id="8r8-td-W31"/>
+                <outlet property="collectionViewTopContraint" destination="Xq0-QP-yOC" id="D4d-dY-Bgi"/>
+                <outlet property="descriptionTextView" destination="7WX-2H-IiJ" id="Lck-0R-NN8"/>
+                <outlet property="detailContainerView" destination="sld-YY-kS6" id="0Jz-mx-85W"/>
+                <outlet property="detailIcon" destination="GWJ-2M-FIC" id="kO3-Mb-w0U"/>
+                <outlet property="detailView" destination="qPV-Mj-tnE" id="gRm-9g-N4B"/>
+                <outlet property="emptyAlbumView" destination="oIm-CL-eb4" id="Ryu-bf-vDq"/>
+                <outlet property="retryView" destination="trQ-ji-7S9" id="b3E-ac-LTo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sld-YY-kS6">
+                    <rect key="frame" x="0.0" y="64" width="320" height="105"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xhS-ne-0dY">
+                            <rect key="frame" x="8" y="15" width="295" height="21"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WX-2H-IiJ">
+                            <rect key="frame" x="5" y="42" width="295" height="25"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPV-Mj-tnE">
+                            <rect key="frame" x="0.0" y="72" width="320" height="25"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfi-vA-Kid">
+                                    <rect key="frame" x="40" y="3" width="255" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GWJ-2M-FIC">
+                                    <rect key="frame" x="10" y="2" width="27" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QdD-3c-9Kz">
+                    <rect key="frame" x="0.0" y="169" width="320" height="262"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="iYn-xh-n7X">
+                        <size key="itemSize" width="0.0" height="0.0"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="2" minY="0.0" maxX="2" maxY="2"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7ia-y8-29p">
+                    <rect key="frame" x="135" y="215" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="BTK-mk-Vqi"/>
+                        <constraint firstAttribute="height" constant="50" id="Qhn-s4-618"/>
+                    </constraints>
+                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIm-CL-eb4">
+                    <rect key="frame" x="8" y="120" width="304" height="240"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album is empty, but you can:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNM-oA-tD9">
+                            <rect key="frame" x="-20.5" y="66" width="345" height="108"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="108" id="OLA-m6-7lt"/>
+                                <constraint firstAttribute="width" constant="345" id="P21-CI-Nz0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-rx-iTC">
+                            <rect key="frame" x="20.5" y="189" width="263" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="E07-vQ-O9p"/>
+                                <constraint firstAttribute="width" constant="263" id="JW8-ZB-Yxm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Upload photos and videos"/>
+                            <connections>
+                                <action selector="uploadFile:" destination="-1" eventType="touchUpInside" id="fte-Sw-Aiy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="240" id="IVU-H2-fvP"/>
+                        <constraint firstAttribute="width" constant="304" id="Lof-8E-p8B"/>
+                        <constraint firstItem="gnn-rx-iTC" firstAttribute="top" secondItem="oNM-oA-tD9" secondAttribute="bottom" constant="15" id="Tpp-MJ-fQT"/>
+                        <constraint firstAttribute="bottom" secondItem="gnn-rx-iTC" secondAttribute="bottom" constant="21" id="WjS-UC-9n5"/>
+                        <constraint firstItem="gnn-rx-iTC" firstAttribute="centerX" secondItem="oIm-CL-eb4" secondAttribute="centerX" id="bSi-eo-DZn"/>
+                        <constraint firstItem="oNM-oA-tD9" firstAttribute="centerY" secondItem="oIm-CL-eb4" secondAttribute="centerY" id="szp-Qo-uwb"/>
+                        <constraint firstItem="oNM-oA-tD9" firstAttribute="centerX" secondItem="oIm-CL-eb4" secondAttribute="centerX" id="tgL-cq-Fnm"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trQ-ji-7S9">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet connection. Make sure that Wi-fi or cellular mobile data is turned on, then try again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="and-I6-Ng3">
+                            <rect key="frame" x="21" y="160" width="278" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdQ-cT-vxb">
+                            <rect key="frame" x="120" y="240" width="81" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <state key="normal" title="Retry"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryNetworkCall:" destination="-1" eventType="touchUpInside" id="MfB-gH-IC1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="QdD-3c-9Kz" secondAttribute="bottom" constant="49" id="0h3-NV-fJJ"/>
+                <constraint firstItem="sld-YY-kS6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="8mf-WU-Oj1"/>
+                <constraint firstAttribute="trailing" secondItem="sld-YY-kS6" secondAttribute="trailing" id="E80-Fn-BYS"/>
+                <constraint firstItem="sld-YY-kS6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FcZ-Gd-U9o"/>
+                <constraint firstItem="oIm-CL-eb4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Gya-sT-gUc"/>
+                <constraint firstItem="QdD-3c-9Kz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="169" id="Xq0-QP-yOC"/>
+                <constraint firstAttribute="trailing" secondItem="QdD-3c-9Kz" secondAttribute="trailing" id="cG7-xd-6LX"/>
+                <constraint firstItem="oIm-CL-eb4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jDQ-Qa-A8x"/>
+                <constraint firstItem="7ia-y8-29p" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mg5-4s-28u"/>
+                <constraint firstItem="QdD-3c-9Kz" firstAttribute="top" secondItem="sld-YY-kS6" secondAttribute="bottom" id="nQW-YL-vtZ"/>
+                <constraint firstItem="7ia-y8-29p" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="omO-rV-Vp3"/>
+                <constraint firstItem="QdD-3c-9Kz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wJq-9H-d8q"/>
+                <constraint firstItem="sld-YY-kS6" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="zhF-8I-b96"/>
+            </constraints>
+            <point key="canvasLocation" x="-355" y="72"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="detailIcon" width="38" height="30"/>
+    </resources>
+</document>
