@@ -1,0 +1,40 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "55329d91c9390c9fc24d863bdf3ac389eeb7bbbb850540abdf8f8b4287588a25"
+build_start_time: [1636916358, 715013980]
+build_end_time: [1636916362, 569133043]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/DKImageBaseManager.swift": [1636912759, 472824335]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/DKImageDataManager.swift": [1636912759, 472470521]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/DKImageGroupDataManager.swift": [1636912759, 472646951]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/Model/DKAsset+Export.swift": [1636912759, 473127841]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/Model/DKAsset+Fetch.swift": [1636912759, 473423004]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/Model/DKAsset.swift": [1636912759, 473565340]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImageDataManager/Model/DKAssetGroup.swift": [1636912759, 473278999]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/DKImageAssetExporter.swift": [1636912759, 474068641]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/DKImageExtensionController.swift"
+  : [1636912759, 473878860]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/DKImagePickerController.swift": [1636912759, 474262714]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/DKImagePickerControllerBaseUIDelegate.swift"
+  : [1636912759, 474440097]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/DKPopoverViewController.swift": [1636912759, 474665641]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/Resource/DKImagePickerControllerResource.swift"
+  : [1636912759, 490893840]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/Cell/DKAssetGroupCellItemProtocol.swift"
+  : [1636912759, 476126432]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/Cell/DKAssetGroupDetailBaseCell.swift"
+  : [1636912759, 476314783]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/Cell/DKAssetGroupDetailCameraCell.swift"
+  : [1636912759, 475724220]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/Cell/DKAssetGroupDetailImageCell.swift"
+  : [1636912759, 476522684]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/Cell/DKAssetGroupDetailVideoCell.swift"
+  : [1636912759, 475919008]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/DKAssetGroupDetailVC.swift": [1636912759, 475310564]
+  ? "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/DKAssetGroupGridLayout.swift"
+  : [1636912759, 475130319]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/DKAssetGroupListVC.swift": [1636912759, 476743698]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/DKImagePickerController/View/DKPermissionView.swift": [1636912759, 474963665]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/Extensions/DKImageExtensionCamera.swift": [1636912759, 471706390]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/Extensions/DKImageExtensionGallery.swift": [1636912759, 471860408]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/Extensions/DKImageExtensionInlineCamera.swift": [1636912759, 472007274]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKImagePickerController/Sources/Extensions/DKImageExtensionPhotoCropper.swift": [1636912759, 472151279]

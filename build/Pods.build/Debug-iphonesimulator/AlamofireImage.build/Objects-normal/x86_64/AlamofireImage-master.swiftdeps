@@ -1,0 +1,14 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "57e3a72a2865e39529628e09d2127c30539f8f9e1457e92b1fa7b32c05ea3c0f"
+build_start_time: [1636916343, 796131134]
+build_end_time: [1636916346, 53699016]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/AFIError.swift": [1636914568, 358426332]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/Image.swift": [1636914568, 358767986]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/ImageCache.swift": [1636914568, 357335567]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/ImageDownloader.swift": [1636914568, 360773563]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/ImageFilter.swift": [1636914568, 362133026]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/Request+AlamofireImage.swift": [1636914568, 361807346]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/UIButton+AlamofireImage.swift": [1636914568, 359863281]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/UIImage+AlamofireImage.swift": [1636914568, 358014106]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/AlamofireImage/Source/UIImageView+AlamofireImage.swift": [1636914568, 361481428]

@@ -3,7 +3,7 @@
 //  com.tbox.fotki
 //
 //  Created by Apple on 3/22/17.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2017 TBoxSolutionz. All rights reserved.
 //
 
 import UIKit

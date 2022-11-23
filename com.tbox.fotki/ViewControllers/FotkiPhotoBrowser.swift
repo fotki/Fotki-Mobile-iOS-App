@@ -3,7 +3,7 @@
 //  com.tbox.fotki
 //
 //  Created by Dilawer Hussain on 2/16/17.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2017 TBoxSolutionz. All rights reserved.
 //
 
 import Foundation
@@ -134,8 +134,12 @@ class FotkiPhotoBrowser: SKPhotoBrowser {
     }
     
     func getOriginalSizeTitle() -> String {
-        let sizeText = ByteCountFormatter.string(fromByteCount: Int64(truncating: photo.imageSize), countStyle: ByteCountFormatter.CountStyle.file)
-        return "Original \(Int(photo.originalImageDimensions.width))X\(Int(photo.originalImageDimensions.height)) (\(sizeText))"
+        var sizeText = ""
+        if(photo.imageSize as! Int > 0 ){
+            sizeText = "(\(ByteCountFormatter.string(fromByteCount: Int64(truncating: photo.imageSize), countStyle: ByteCountFormatter.CountStyle.file)))"
+        }
+        
+        return "Original \(Int(photo.originalImageDimensions.width))X\(Int(photo.originalImageDimensions.height)) \(sizeText)"
     }
    
     func getResizedTitle() -> String {
@@ -144,8 +148,12 @@ class FotkiPhotoBrowser: SKPhotoBrowser {
             return kResized
         } else {
             self.isOriginalDownloading = false
-            let sizeText = ByteCountFormatter.string(fromByteCount: Int64(truncating: photo.resizedImageSize), countStyle: ByteCountFormatter.CountStyle.file)
-            return "Resized \(Int(photo.resizedImageDimensions.width))X\(Int(photo.resizedImageDimensions.height)) (\(sizeText))"
+            var sizeText = ""
+            if (photo.resizedImageSize as! Int > 0 ){
+                sizeText = "(\(ByteCountFormatter.string(fromByteCount: Int64(truncating: photo.resizedImageSize), countStyle: ByteCountFormatter.CountStyle.file))"
+            }
+            
+            return "Resized \(Int(photo.resizedImageDimensions.width))X\(Int(photo.resizedImageDimensions.height)) \(sizeText)"
         }
     }
     

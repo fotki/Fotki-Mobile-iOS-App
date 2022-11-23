@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/admin/fotki-mobile-ios-swift/build/Debug-iphonesimulator/DKImagePickerController/DKImagePickerController.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/admin/fotki-mobile-ios-swift/build/Pods.build/Debug-iphonesimulator/DKImagePickerController.build/unextended-module.modulemap",
+    }]
+  }]
+}

@@ -3,7 +3,7 @@
 //  SKPhotoBrowser
 //
 //  Created by 鈴木 啓司 on 2016/08/12.
-//  Copyright © 2020年 suzuki_keishi. All rights reserved.
+//  Copyright © 2016年 suzuki_keishi. All rights reserved.
 //
 
 import Foundation

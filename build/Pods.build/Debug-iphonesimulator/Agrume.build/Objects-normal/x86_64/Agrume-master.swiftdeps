@@ -1,0 +1,17 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "57e3a72a2865e39529628e09d2127c30539f8f9e1457e92b1fa7b32c05ea3c0f"
+build_start_time: [1636916341, 561763048]
+build_end_time: [1636916346, 561859130]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/Agrume.swift": [1636845043, 65695285]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumeCell.swift": [1636845043, 64975500]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumeDataSource.swift": [1636845043, 64791202]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumeImage.swift": [1636845043, 66559314]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumeOverlayView.swift": [1636845043, 64402818]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumePhotoLibraryHelper.swift": [1636845043, 66341638]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/AgrumeServiceLocator.swift": [1636845043, 65150260]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/Configuration.swift": [1636845043, 67021846]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/Foundation+Agrume.swift": [1636845043, 64611434]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/ImageDownloader.swift": [1636845043, 65348625]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/UIKit+Agrume.swift": [1636845043, 66074371]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Agrume/Agrume/With.swift": [1636845043, 66807746]

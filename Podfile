@@ -7,18 +7,12 @@ target ‘Fotki' do
 
   use_frameworks!
 
-  pod 'Fabric'
-  pod 'Crashlytics'
   pod 'SideMenuController'
- 
+  pod 'Alamofire'
   pod 'Agrume'
-  pod 'Google/SignIn'
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKShareKit'
-  pod 'FBSDKLoginKit'
- pod 'DKImagePickerController'
+  pod 'DKImagePickerController'
   pod 'ESPullToRefresh'
- pod 'AlamofireImage', '~> 3.1'
+  pod 'AlamofireImage', '~> 3.1'
    # Pods for com.tbox.fotki DKImagePickerController
 
   target ‘FotkiTests' do

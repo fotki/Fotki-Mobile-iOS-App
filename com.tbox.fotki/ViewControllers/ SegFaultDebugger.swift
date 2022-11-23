@@ -3,7 +3,7 @@
 //  Fotki
 //
 //  Created by Si on 10/2/19.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2019 TBoxSolutionz. All rights reserved.
 //
 
 import Foundation

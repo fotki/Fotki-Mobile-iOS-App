@@ -3,7 +3,7 @@
 //  com.tbox.fotki
 //
 //  Created by Dilawer Hussain on 12/27/16.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2016 TBoxSolutionz. All rights reserved.
 //
 
 import Foundation
@@ -275,6 +275,7 @@ let kThe_username_or_password_is_not_correct_Try_again = "The username or passwo
 let kNo_accounts_found_against_this_email = "No accounts found against this email"
 let kUsername_or_Password_is_missing = "Username or Password is missing"
 let kAre_you_sure_you_want_to_logout = "Are you sure you want to logout?"
+let kiCloud_error_message = "Please check your iClound settings."
 let kThe_folder_name_is_missing = "The folder name is missing"
 let kThe_folder_description_is_missing = "The folder description is missing"
 let kThe_album_name_is_missing = "The album name is missing"

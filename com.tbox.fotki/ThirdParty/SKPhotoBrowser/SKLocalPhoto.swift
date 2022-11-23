@@ -3,7 +3,7 @@
 //  SKPhotoBrowser
 //
 //  Created by Antoine Barrault on 13/04/2016.
-//  Copyright © 2020 suzuki_keishi. All rights reserved.
+//  Copyright © 2016 suzuki_keishi. All rights reserved.
 //
 
 import UIKit

@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "e5ab5e9422a53ba45284d18bd4db99f7d23d5b063ef0ee7da37f5de7eaca9930"
+build_start_time: [1636916337, 845160007]
+build_end_time: [1636916342, 125736951]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/CenterContainmentSegue.swift": [1636834770, 484427928]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/SideContainmentSegue.swift": [1636834770, 484551906]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/SideMenuController+CustomTypes.swift": [1636834770, 484711170]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/SideMenuController+SideOver.swift": [1636834770, 484967708]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/SideMenuController+SideUnder.swift": [1636834770, 485128402]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/SideMenuController.swift": [1636834770, 485337257]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/TransitionAnimator.swift": [1636834770, 485483169]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SideMenuController/Source/UIKitExtensions.swift": [1636834770, 485640048]

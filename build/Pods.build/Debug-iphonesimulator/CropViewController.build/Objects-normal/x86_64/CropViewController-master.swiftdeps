@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "2b5c7d5dac5b456402253794bcaaf54e42576a13e1bf7c28b42ff227eeae4e7b"
+build_start_time: [1636916337, 842371940]
+build_end_time: [1636916341, 385221958]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/CropViewController/Swift/CropViewController/CropViewController.swift": [1636834980, 850749492]

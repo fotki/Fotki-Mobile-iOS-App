@@ -1,5 +1,5 @@
 //
-//  Copyright © 2020 Schnaub. All rights reserved.
+//  Copyright © 2016 Schnaub. All rights reserved.
 //
 
 import UIKit
@@ -16,11 +16,13 @@ public final class Agrume: UIViewController {
 
   private var images: [AgrumeImage]!
   private let startIndex: Int
-  private let background: Background
   private let dismissal: Dismissal
   
   private var overlayView: AgrumeOverlayView?
   private weak var dataSource: AgrumeDataSource?
+
+  /// The background property. Set through the initialiser for most use cases.
+  public var background: Background
 
   /// The "page" index for the current image
   public private(set) var currentIndex: Int
@@ -61,8 +63,8 @@ public final class Agrume: UIViewController {
   ///   - background: The background configuration
   ///   - dismissal: The dismiss configuration
   ///   - overlayView: View to overlay the image (does not display with 'button' dismissals)
-  public convenience init(image: UIImage, background: Background = .colored(.black), dismissal: Dismissal = .withPhysics,
-                          overlayView: AgrumeOverlayView? = nil) {
+  public convenience init(image: UIImage, background: Background = .colored(.black),
+                          dismissal: Dismissal = .withPan(.standard), overlayView: AgrumeOverlayView? = nil) {
     self.init(images: [image], background: background, dismissal: dismissal, overlayView: overlayView)
   }
 
@@ -73,7 +75,7 @@ public final class Agrume: UIViewController {
   ///   - background: The background configuration
   ///   - dismissal: The dismiss configuration
   ///   - overlayView: View to overlay the image (does not display with 'button' dismissals)
-  public convenience init(url: URL, background: Background = .colored(.black), dismissal: Dismissal = .withPhysics,
+  public convenience init(url: URL, background: Background = .colored(.black), dismissal: Dismissal = .withPan(.standard),
                           overlayView: AgrumeOverlayView? = nil) {
     self.init(urls: [url], background: background, dismissal: dismissal, overlayView: overlayView)
   }
@@ -87,7 +89,7 @@ public final class Agrume: UIViewController {
   ///   - dismissal: The dismiss configuration
   ///   - overlayView: View to overlay the image (does not display with 'button' dismissals)
   public convenience init(dataSource: AgrumeDataSource, startIndex: Int = 0, background: Background = .colored(.black),
-                          dismissal: Dismissal = .withPhysics, overlayView: AgrumeOverlayView? = nil) {
+                          dismissal: Dismissal = .withPan(.standard), overlayView: AgrumeOverlayView? = nil) {
     self.init(images: nil, dataSource: dataSource, startIndex: startIndex, background: background, dismissal: dismissal,
               overlayView: overlayView)
   }
@@ -101,7 +103,7 @@ public final class Agrume: UIViewController {
   ///   - dismissal: The dismiss configuration
   ///   - overlayView: View to overlay the image (does not display with 'button' dismissals)
   public convenience init(images: [UIImage], startIndex: Int = 0, background: Background = .colored(.black),
-                          dismissal: Dismissal = .withPhysics, overlayView: AgrumeOverlayView? = nil) {
+                          dismissal: Dismissal = .withPan(.standard), overlayView: AgrumeOverlayView? = nil) {
     self.init(images: images, urls: nil, startIndex: startIndex, background: background, dismissal: dismissal, overlayView: overlayView)
   }
 
@@ -114,7 +116,7 @@ public final class Agrume: UIViewController {
   ///   - dismissal: The dismiss configuration
   ///   - overlayView: View to overlay the image (does not display with 'button' dismissals)
   public convenience init(urls: [URL], startIndex: Int = 0, background: Background = .colored(.black),
-                          dismissal: Dismissal = .withPhysics, overlayView: AgrumeOverlayView? = nil) {
+                          dismissal: Dismissal = .withPan(.standard), overlayView: AgrumeOverlayView? = nil) {
     self.init(images: nil, urls: urls, startIndex: startIndex, background: background, dismissal: dismissal, overlayView: overlayView)
   }
 
@@ -184,11 +186,10 @@ public final class Agrume: UIViewController {
       layout.minimumInteritemSpacing = 0
       layout.minimumLineSpacing = 0
       layout.scrollDirection = .horizontal
-      layout.itemSize = view.frame.size
 
       let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
       collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-      collectionView.register(AgrumeCell.self, forCellWithReuseIdentifier: String(describing: AgrumeCell.self))
+      collectionView.register(AgrumeCell.self)
       collectionView.dataSource = self
       collectionView.delegate = self
       collectionView.isPagingEnabled = true
@@ -207,9 +208,9 @@ public final class Agrume: UIViewController {
     if _spinner == nil {
       let indicatorStyle: UIActivityIndicatorView.Style
       switch background {
-      case .blurred(let style):
+      case let .blurred(style):
         indicatorStyle = style == .dark ? .whiteLarge : .gray
-      case .colored(let color):
+      case let .colored(color):
         indicatorStyle = color.isLight ? .gray : .whiteLarge
       }
       let spinner = UIActivityIndicatorView(style: indicatorStyle)
@@ -219,6 +220,10 @@ public final class Agrume: UIViewController {
       _spinner = spinner
     }
     return _spinner!
+  }
+  // Container for the collection view. Fixes an RTL display bug
+  private lazy var containerView = with(UIView(frame: view.bounds)) { containerView in
+    containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
   }
 
   private var downloadTask: URLSessionDataTask?
@@ -237,9 +242,18 @@ public final class Agrume: UIViewController {
   /// - Parameters:
   ///   - index: The target index
   ///   - image: The replacement UIImage
-  public func updateImage(at index: Int, with image: UIImage) {
+  ///   - newTitle: The new title, if nil then no change
+  public func updateImage(at index: Int, with image: UIImage, newTitle: NSAttributedString? = nil) {
     assert(images.count > index)
-    let replacement = with(images[index]) { $0.image = image }
+    let replacement = with(images[index]) {
+      $0.url = nil
+      $0.image = image
+      if let newTitle = newTitle {
+        $0.title = newTitle
+      }
+    }
+    
+    markAsUpdatingSameCell(at: index)
     images[index] = replacement
     reload()
   }
@@ -248,11 +262,28 @@ public final class Agrume: UIViewController {
   /// - Parameters:
   ///   - index: The target index
   ///   - url: The replacement URL
-  public func updateImage(at index: Int, with url: URL) {
+  ///   - newTitle: The new title, if nil then no change
+  public func updateImage(at index: Int, with url: URL, newTitle: NSAttributedString? = nil) {
     assert(images.count > index)
-    let replacement = with(images[index]) { $0.url = url }
+    let replacement = with(images[index]) {
+      $0.image = nil
+      $0.url = url
+      if let newTitle = newTitle {
+        $0.title = newTitle
+      }
+    }
+    
+    markAsUpdatingSameCell(at: index)
     images[index] = replacement
     reload()
+  }
+  
+  private func markAsUpdatingSameCell(at index: Int) {
+    collectionView.visibleCells.forEach { cell in
+      if let cell = cell as? AgrumeCell, cell.index == index {
+        cell.updatingImageOnSameCell = true
+      }
+    }
   }
   
   override public func viewDidLoad() {
@@ -267,7 +298,7 @@ public final class Agrume: UIViewController {
 
   @objc
   func didLongPress(_ gesture: UIGestureRecognizer) {
-    guard gesture.state == .began else {
+    guard case .began = gesture.state else {
       return
     }
     fetchImage(forIndex: currentIndex) { [weak self] image in
@@ -285,42 +316,48 @@ public final class Agrume: UIViewController {
       blurContainerView.addSubview(blurView)
     }
     view.addSubview(blurContainerView)
-    view.addSubview(collectionView)
+    view.addSubview(containerView)
+    containerView.addSubview(collectionView)
     view.addSubview(spinner)
   }
   
   private func present(from viewController: UIViewController) {
     DispatchQueue.main.async {
       self.blurContainerView.alpha = 1
-      self.collectionView.alpha = 0
+      self.containerView.alpha = 0
       let scale: CGFloat = .initialScaleToExpandFrom
-      self.collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
 
       viewController.present(self, animated: false) {
-        UIView.animate(withDuration: .transitionAnimationDuration,
-                       delay: 0,
-                       options: .beginFromCurrentState,
-                       animations: {
-                        self.collectionView.alpha = 1
-                        self.collectionView.transform = .identity
-                        self.addOverlayView()
-        }, completion: { _ in
-          self.view.isUserInteractionEnabled = true
-        })
+        // Transform the container view, not the collection view to prevent an RTL display bug
+        self.containerView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        
+        UIView.animate(
+          withDuration: .transitionAnimationDuration,
+          delay: 0,
+          options: .beginFromCurrentState,
+          animations: {
+            self.containerView.alpha = 1
+            self.containerView.transform = .identity
+            self.addOverlayView()
+          },
+          completion: { _ in
+            self.view.isUserInteractionEnabled = true
+          }
+        )
       }
     }
   }
   
   private func addOverlayView() {
     switch (dismissal, overlayView) {
-    case (.withButton(let button), _), (.withPhysicsAndButton(let button), _):
+    case let (.withButton(button), _), let (.withPanAndButton(_, button), _):
       let overlayView = AgrumeCloseButtonOverlayView(closeButton: button)
       overlayView.delegate = self
       overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       overlayView.frame = view.bounds
       view.addSubview(overlayView)
       self.overlayView = overlayView
-    case (.withPhysics, let overlayView?):
+    case (.withPan, let overlayView?):
       overlayView.alpha = 1
       overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       overlayView.frame = view.bounds
@@ -338,12 +375,23 @@ public final class Agrume: UIViewController {
     return presentingVC
   }
 
+  public override var keyCommands: [UIKeyCommand]? {
+    return [
+      UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: [], action: #selector(escPressed))
+    ]
+  }
+
+  @objc
+  func escPressed() {
+    dismiss()
+  }
+  
   public func dismiss() {
     dismissAfterFlick()
   }
 
   public func showImage(atIndex index: Int, animated: Bool = true) {
-    scrollToImage(withIndex: index, animated: animated)
+    scrollToImage(atIndex: index, animated: animated)
   }
 
   public func reload() {
@@ -356,8 +404,8 @@ public final class Agrume: UIViewController {
     hideStatusBar
   }
   
-  private func scrollToImage(withIndex: Int, animated: Bool = false) {
-    collectionView.scrollToItem(at: IndexPath(item: withIndex, section: 0), at: .centeredHorizontally, animated: animated)
+  private func scrollToImage(atIndex index: Int, animated: Bool = false) {
+    collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: animated)
   }
   
   private func currentlyVisibleCellIndex() -> Int {
@@ -375,14 +423,14 @@ public final class Agrume: UIViewController {
     spinner.center = view.center
     
     if currentIndex != currentlyVisibleCellIndex() {
-      scrollToImage(withIndex: currentIndex)
+      scrollToImage(atIndex: currentIndex)
     }
   }
   
   override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     let indexToRotate = currentIndex
     let rotationHandler: ((UIViewControllerTransitionCoordinatorContext) -> Void) = { _ in
-      self.scrollToImage(withIndex: indexToRotate)
+      self.scrollToImage(atIndex: indexToRotate)
       self.collectionView.visibleCells.forEach { cell in
         (cell as! AgrumeCell).recenterDuringRotation(size: size)
       }
@@ -399,7 +447,8 @@ extension Agrume: AgrumeDataSource {
   }
   
   public func image(forIndex index: Int, completion: @escaping (UIImage?) -> Void) {
-    if let handler = AgrumeServiceLocator.shared.downloadHandler, let url = images[index].url {
+    let downloadHandler = download ?? AgrumeServiceLocator.shared.downloadHandler
+    if let handler = downloadHandler, let url = images[index].url {
       handler(url, completion)
     } else if let url = images[index].url {
       downloadTask = ImageDownloader.downloadImage(url, completion: completion)
@@ -421,14 +470,18 @@ extension Agrume: UICollectionViewDataSource {
 
     cell.tapBehavior = tapBehavior
     switch dismissal {
-    case .withPhysics, .withPhysicsAndButton:
-      cell.hasPhysics = true
+    case .withPan(let physics), .withPanAndButton(let physics, _):
+      cell.panPhysics = physics
     case .withButton:
-      cell.hasPhysics = false
+      cell.panPhysics = nil
+    // Backward compatibility
+    case .withPhysics, .withPhysicsAndButton:
+      cell.panPhysics = .standard
     }
 
     spinner.alpha = 1
     fetchImage(forIndex: indexPath.item) { [weak self] image in
+      cell.index = indexPath.item
       cell.image = image
       self?.spinner.alpha = 0
     }
@@ -448,7 +501,16 @@ extension Agrume: UICollectionViewDataSource {
 
 }
 
-extension Agrume: UICollectionViewDelegate {
+extension Agrume: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  public func collectionView(_ collectionView: UICollectionView,
+                             layout collectionViewLayout: UICollectionViewLayout,
+                             insetForSectionAt section: Int) -> UIEdgeInsets {
+    // Center cells horizontally
+    let cellWidth = view.bounds.width
+    let totalWidth = cellWidth * CGFloat(dataSource?.numberOfImages ?? 0)
+    let leftRightEdgeInset = max(0, (collectionView.bounds.width - totalWidth) / 2)
+    return UIEdgeInsets(top: 0, left: leftRightEdgeInset, bottom: 0, right: leftRightEdgeInset)
+  }
 
   public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     didScroll?(currentlyVisibleCellIndex())
@@ -491,41 +553,50 @@ extension Agrume: AgrumeCellDelegate {
 
   func dismissAfterFlick() {
     self.willDismiss?()
-    UIView.animate(withDuration: .transitionAnimationDuration,
-                   delay: 0,
-                   options: .beginFromCurrentState,
-                   animations: {
-                    self.collectionView.alpha = 0
-                    self.blurContainerView.alpha = 0
-                    self.overlayView?.alpha = 0
-    }, completion: dismissCompletion)
+    UIView.animate(
+      withDuration: .transitionAnimationDuration,
+      delay: 0,
+      options: .beginFromCurrentState,
+      animations: {
+        self.collectionView.alpha = 0
+        self.blurContainerView.alpha = 0
+        self.overlayView?.alpha = 0
+      },
+      completion: dismissCompletion
+    )
   }
   
   func dismissAfterTap() {
     view.isUserInteractionEnabled = false
 
     self.willDismiss?()
-    UIView.animate(withDuration: .transitionAnimationDuration,
-                   delay: 0,
-                   options: .beginFromCurrentState,
-                   animations: {
-                    self.collectionView.alpha = 0
-                    self.blurContainerView.alpha = 0
-                    self.overlayView?.alpha = 0
-                    let scale: CGFloat = .maxScaleForExpandingOffscreen
-                    self.collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
-    }, completion: dismissCompletion)
+    UIView.animate(
+      withDuration: .transitionAnimationDuration,
+      delay: 0,
+      options: .beginFromCurrentState,
+      animations: {
+        self.collectionView.alpha = 0
+        self.blurContainerView.alpha = 0
+        self.overlayView?.alpha = 0
+        let scale: CGFloat = .maxScaleForExpandingOffscreen
+        self.collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
+      },
+      completion: dismissCompletion
+    )
   }
 
   func toggleOverlayVisibility() {
-    UIView.animate(withDuration: .transitionAnimationDuration,
-                   delay: 0,
-                   options: .beginFromCurrentState,
-                   animations: {
-                    if let overlayView = self.overlayView {
-                      overlayView.alpha = overlayView.alpha < 0.5 ? 1 : 0
-                    }
-    }, completion: nil)
+    UIView.animate(
+      withDuration: .transitionAnimationDuration,
+      delay: 0,
+      options: .beginFromCurrentState,
+      animations: {
+        if let overlayView = self.overlayView {
+          overlayView.alpha = overlayView.alpha < 0.5 ? 1 : 0
+        }
+      },
+      completion: nil
+    )
   }
 }
 

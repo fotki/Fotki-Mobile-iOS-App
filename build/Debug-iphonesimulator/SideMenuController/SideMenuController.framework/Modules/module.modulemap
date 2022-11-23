@@ -1,0 +1,11 @@
+framework module SideMenuController {
+  umbrella header "SideMenuController-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module SideMenuController.Swift {
+    header "SideMenuController-Swift.h"
+    requires objc
+}

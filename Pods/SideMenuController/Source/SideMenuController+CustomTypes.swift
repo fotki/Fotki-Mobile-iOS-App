@@ -3,7 +3,7 @@
 //  SideMenuController
 //
 //  Created by Teodor Patras on 15/07/16.
-//  Copyright © 2020 teodorpatras. All rights reserved.
+//  Copyright © 2016 teodorpatras. All rights reserved.
 //
 
 // MARK: - Extension for implementing the custom nested types

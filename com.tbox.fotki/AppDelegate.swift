@@ -3,14 +3,14 @@
 //  com.tbox.fotki
 //
 //  Created by Dilawer Hussain on 12/27/16.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2016 TBoxSolutionz. All rights reserved.
 //
 
 import UIKit
 import SideMenuController
-import Fabric
-import Crashlytics
-import Google
+import Firebase
+//import Crashlytics
+//import Google
 import Alamofire
 import GoogleSignIn
 import FBSDKCoreKit
@@ -31,17 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController = LoginViewController(nibName: kLoginViewController, bundle: nil) as LoginViewController
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
-        Fabric.with([Crashlytics.self])
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+        let signInConfig = GIDConfiguration.init(clientID: "com.googleusercontent.apps.493517061617-gl8a7mc5j49n6iqhlvec7fupr2jpe9es")
+        
         return true
     }
     
     //MARK: Helper for gmail delegate init
     func gmailDelegateSetting() {
-        // Initialize sign-in
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
-        GIDSignIn.sharedInstance().delegate = self
+//        // Initialize sign-in
+//        var configureError: NSError?
+//        GGLContext.sharedInstance().configureWithError(&configureError)
+//        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
+//        GIDSignIn.sharedInstance().delegate = self
     }
     
     //MARK: setup the side Menu
@@ -62,50 +65,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppEvents.activateApp()
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
-    }
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+////        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+//    }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         if #available(iOS 9.0, *) {
-            if GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,                                                         annotation: options[UIApplication.OpenURLOptionsKey.annotation]) {
+            var handled: Bool
+
+              handled = GIDSignIn.sharedInstance.handle(url)
+              if handled {
                 return true
-            } else {
-                return ApplicationDelegate.shared.application(app, open: url,sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-            }
-        } else {
-            // Fallback on earlier versions
+              }
+
+            return ApplicationDelegate.shared.application(app, open: url,sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+
+              // If not handled by this app, return false.
+
+            
+            
         }
-        return true
     }
 }
 
-extension AppDelegate: GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID
-            let idToken = user.authentication.idToken
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            let accessToken = user.authentication.accessToken
-            print(userId!)
-            print(idToken!)
-            print(fullName!)
-            print(givenName!)
-            print(familyName!)
-            print(email!)
-            let progressDictionary:[String: String] = [kemail: email!, kaccess_token: accessToken!]
-            // post a notification
-            NotificationCenter.default.post(name: NSNotification.Name(kGoogleLogin), object: nil, userInfo: progressDictionary)
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
-}
+//extension AppDelegate: GIDSignInDelegate {
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        if let error = error {
+//            print("\(error.localizedDescription)")
+//        } else {
+//            // Perform any operations on signed in user here.
+//            let userId = user.userID
+//            let idToken = user.authentication.idToken
+//            let fullName = user.profile.name
+//            let givenName = user.profile.givenName
+//            let familyName = user.profile.familyName
+//            let email = user.profile.email
+//            let accessToken = user.authentication.accessToken
+//            print(userId!)
+//            print(idToken!)
+//            print(fullName!)
+//            print(givenName!)
+//            print(familyName!)
+//            print(email!)
+//            let progressDictionary:[String: String] = [kemail: email!, kaccess_token: accessToken!]
+//            // post a notification
+//            NotificationCenter.default.post(name: NSNotification.Name(kGoogleLogin), object: nil, userInfo: progressDictionary)
+//        }
+//    }
+//    
+//    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+//        
+//    }
+//}

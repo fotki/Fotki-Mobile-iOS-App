@@ -1,0 +1,22 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "e5ab5e9422a53ba45284d18bd4db99f7d23d5b063ef0ee7da37f5de7eaca9930"
+build_start_time: [1636916381, 342512130]
+build_end_time: [1636916381, 443850994]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/AFError.swift": [1636908522, 173532247]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Alamofire.swift": [1636908522, 174193620]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/DispatchQueue+Alamofire.swift": [1636908522, 173021793]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/MultipartFormData.swift": [1636908522, 172555923]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/NetworkReachabilityManager.swift": [1636908522, 172728061]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Notifications.swift": [1636908522, 173849582]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/ParameterEncoding.swift": [1636908522, 173346519]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Request.swift": [1636908522, 174372673]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Response.swift": [1636908522, 174009323]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/ResponseSerialization.swift": [1636908522, 174775362]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Result.swift": [1636908522, 173168659]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/ServerTrustPolicy.swift": [1636908522, 174947738]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/SessionDelegate.swift": [1636908522, 175132274]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/SessionManager.swift": [1636908522, 174579143]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/TaskDelegate.swift": [1636908522, 172378301]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Timeline.swift": [1636908522, 172873973]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/Alamofire/Source/Validation.swift": [1636908522, 173700571]

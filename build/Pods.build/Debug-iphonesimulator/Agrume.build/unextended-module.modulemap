@@ -1,0 +1,10 @@
+framework module Agrume {
+  umbrella header "Agrume-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Agrume.__Swift {
+    exclude header "Agrume-Swift.h"
+}

@@ -3,7 +3,7 @@
 //  com.tbox.fotkiTests
 //
 //  Created by Dilawer Hussain on 12/27/16.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2016 TBoxSolutionz. All rights reserved.
 //
 
 import XCTest

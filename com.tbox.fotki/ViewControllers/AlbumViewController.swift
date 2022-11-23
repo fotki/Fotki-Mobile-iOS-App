@@ -3,7 +3,7 @@
 //  com.tbox.fotki
 //
 //  Created by Apple on 1/4/17.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2017 TBoxSolutionz. All rights reserved.
 //
 
 import UIKit
@@ -98,7 +98,7 @@ class AlbumViewController: UIViewController {
                 self.setupViewerData()
                 images.removeAll()
                 imagesCache.removeAll()
-                self.album = Album()
+//                self.album = Album()
             }
         }
     }
@@ -969,7 +969,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension AlbumViewController: UploadViewControllerDelegate, ActionViewControllerDelegate {
     func selectItemsForAlbum(pickerController: DKImagePickerController) {
-        pickerController.UIDelegate = FotkiImagePickerUI()
+//        pickerController.UIDelegate = FotkiImagePickerUI()
         //self.uploadViewController = (self.tabBarController?.viewControllers?[2] as! UINavigationController!).viewControllers.first as! UploadViewController!
         self.uploadViewController = ((self.tabBarController as! MainTabViewController?)!.viewControllers?[2] as! UINavigationController?)!.viewControllers.first as! UploadViewController?
                if self.uploadViewController?.uploadComplete == true {
@@ -985,8 +985,8 @@ extension AlbumViewController: UploadViewControllerDelegate, ActionViewControlle
                     } else {
                         self.uploadViewController?.isPublicFile = true
                     }
-                    //pickerController.deselectAll()
-             pickerController.deselectAllAssets()
+                    pickerController.deselectAll()
+//             pickerController.deselectAllAssets()
                     //deselectAllAssets()    deselectAll()
                     self.tabBarController?.selectedIndex = 2
                 }

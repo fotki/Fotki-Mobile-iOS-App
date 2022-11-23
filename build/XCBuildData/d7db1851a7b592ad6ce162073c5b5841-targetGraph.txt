@@ -1,0 +1,68 @@
+Target dependency graph (23 targets)
+SwiftyGif in Pods, no dependencies
+Agrume in Pods, depends on:
+SwiftyGif in Pods (explicit)
+Alamofire in Pods, no dependencies
+AlamofireImage in Pods, depends on:
+Alamofire in Pods (explicit)
+Fabric in Pods, no dependencies
+Crashlytics in Pods, depends on:
+Fabric in Pods (explicit)
+CropViewController-TOCropViewControllerBundle in Pods, no dependencies
+CropViewController in Pods, depends on:
+CropViewController-TOCropViewControllerBundle in Pods (explicit)
+DKCamera in Pods, no dependencies
+SDWebImage in Pods, no dependencies
+DKPhotoGallery-DKPhotoGallery in Pods, depends on:
+SDWebImage in Pods (implicit dependency via options '-framework SDWebImage' in build setting 'OTHER_LDFLAGS')
+SwiftyGif in Pods (implicit dependency via options '-framework SwiftyGif' in build setting 'OTHER_LDFLAGS')
+DKPhotoGallery in Pods, depends on:
+DKPhotoGallery-DKPhotoGallery in Pods (explicit)
+SDWebImage in Pods (explicit)
+SwiftyGif in Pods (explicit)
+DKImagePickerController-DKImagePickerController in Pods, depends on:
+CropViewController in Pods (implicit dependency via options '-framework CropViewController' in build setting 'OTHER_LDFLAGS')
+DKCamera in Pods (implicit dependency via options '-framework DKCamera' in build setting 'OTHER_LDFLAGS')
+DKPhotoGallery in Pods (implicit dependency via options '-framework DKPhotoGallery' in build setting 'OTHER_LDFLAGS')
+DKImagePickerController in Pods, depends on:
+CropViewController in Pods (explicit)
+DKCamera in Pods (explicit)
+DKImagePickerController-DKImagePickerController in Pods (explicit)
+DKPhotoGallery in Pods (explicit)
+GoogleToolboxForMac in Pods, no dependencies
+FirebaseCore in Pods, depends on:
+GoogleToolboxForMac in Pods (explicit)
+FirebaseInstanceID in Pods, depends on:
+FirebaseCore in Pods (explicit)
+FirebaseAnalytics in Pods, depends on:
+FirebaseCore in Pods (explicit)
+FirebaseInstanceID in Pods (explicit)
+GoogleToolboxForMac in Pods (explicit)
+GTMSessionFetcher in Pods, no dependencies
+GoogleSignIn in Pods, depends on:
+GoogleToolboxForMac in Pods (explicit)
+GTMSessionFetcher in Pods (explicit)
+Google in Pods, depends on:
+FirebaseAnalytics in Pods (explicit)
+GoogleSignIn in Pods (explicit)
+SideMenuController in Pods, no dependencies
+Pods-Fotki in Pods, depends on:
+Agrume in Pods (explicit)
+Alamofire in Pods (explicit)
+AlamofireImage in Pods (explicit)
+Crashlytics in Pods (explicit)
+CropViewController in Pods (explicit)
+DKCamera in Pods (explicit)
+DKImagePickerController in Pods (explicit)
+DKPhotoGallery in Pods (explicit)
+Fabric in Pods (explicit)
+FirebaseAnalytics in Pods (explicit)
+FirebaseCore in Pods (explicit)
+FirebaseInstanceID in Pods (explicit)
+GTMSessionFetcher in Pods (explicit)
+Google in Pods (explicit)
+GoogleSignIn in Pods (explicit)
+GoogleToolboxForMac in Pods (explicit)
+SDWebImage in Pods (explicit)
+SideMenuController in Pods (explicit)
+SwiftyGif in Pods (explicit)

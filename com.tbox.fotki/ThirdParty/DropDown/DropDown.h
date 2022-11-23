@@ -3,7 +3,7 @@
 //  DropDown
 //
 //  Created by Kevin Hirsch on 13/06/16.
-//  Copyright © 2020 Kevin Hirsch. All rights reserved.
+//  Copyright © 2016 Kevin Hirsch. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

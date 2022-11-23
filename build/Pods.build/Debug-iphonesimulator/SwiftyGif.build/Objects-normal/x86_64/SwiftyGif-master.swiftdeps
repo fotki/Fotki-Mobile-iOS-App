@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "e5ab5e9422a53ba45284d18bd4db99f7d23d5b063ef0ee7da37f5de7eaca9930"
+build_start_time: [1636916337, 843460083]
+build_end_time: [1636916341, 439094066]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SwiftyGif/SwiftyGif/NSImage+SwiftyGif.swift": [1636845213, 520294666]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SwiftyGif/SwiftyGif/NSImageView+SwiftyGif.swift": [1636845213, 521698474]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SwiftyGif/SwiftyGif/SwiftyGifManager.swift": [1636845213, 521272659]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SwiftyGif/SwiftyGif/UIImage+SwiftyGif.swift": [1636845213, 520567655]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/SwiftyGif/SwiftyGif/UIImageView+SwiftyGif.swift": [1636845213, 519927263]

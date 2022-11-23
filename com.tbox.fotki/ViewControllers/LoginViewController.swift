@@ -3,16 +3,16 @@
 //  com.tbox.fotki
 //
 //  Created by Dilawer Hussain on 12/27/16.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2016 TBoxSolutionz. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SideMenuController
-import Google
-import GoogleSignIn
+//import Google
+//import GoogleSignIn
 import FBSDKLoginKit
-import Crashlytics
+//import Crashlytics
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
@@ -23,8 +23,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var versionLabel: UILabel!
+    func testCrash(){
+        let numbers = [0]
+        let _ = numbers[1]
+    }
+    
     //MARK: IBAction Buttons
     @IBAction func login(_ sender: Any) {
+//        self.testCrash()
         if username.text == "" || password.text == "" {
             Utility.showAlertWithSingleOption(controller: self, title: "", message: kUsername_or_Password_is_missing, preferredStyle: .alert, buttonText: kOK, buttonHandler: nil)
         } else {
@@ -49,7 +55,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func googleSignIn(_ sender: Any) {
-         GIDSignIn.sharedInstance().signIn()
+//         GIDSignIn.sharedInstance().signIn()
     }
     
     //MARK: view's life cycle functions
@@ -74,7 +80,7 @@ class LoginViewController: UIViewController {
             versionLabel.text = "Version \(version)"
         }
         self.hideKeyboardWhenTappedAround()
-        setGIDSignInDelegate()
+//        setGIDSignInDelegate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func gmailLogout() {
-        GIDSignIn.sharedInstance().signOut()
+//        GIDSignIn.sharedInstance().signOut()
         let session = Session.getInstance()
         if !((session?.user.isGmailLogin)!) {
             self.dismiss(animated: false, completion: nil)
@@ -206,7 +212,7 @@ class LoginViewController: UIViewController {
                 if error == nil {
                     self.dictionary = result as? [String: AnyObject]
                     print(result!)
-                    print(self.dictionary)
+                    print(self.dictionary as Any)
                     let email = self.dictionary[kemail]
                     let accessToken = AccessToken.current!.tokenString
                     UserDefaults.standard.setValue(accessToken, forKey: kaccess_token)
@@ -225,21 +231,21 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension UIViewController: GIDSignInUIDelegate {
-    // Present a view that prompts the user to sign in with Google
-    public func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    // Dismiss the "Sign in with Google" view
-    public func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func setGIDSignInDelegate() {
-        GIDSignIn.sharedInstance().uiDelegate = self
-    }
-}
+//extension UIViewController: GIDSignInUIDelegate {
+//    // Present a view that prompts the user to sign in with Google
+//    public func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+//        self.present(viewController, animated: true, completion: nil)
+//    }
+//
+//    // Dismiss the "Sign in with Google" view
+//    public func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
+//    func setGIDSignInDelegate() {
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//    }
+//}
 
 extension LoginViewController: UITextFieldDelegate {
     //MARK: textFieldDelegate functions
@@ -284,7 +290,7 @@ extension LoginViewController: WebManagerDelegate {
                     let data = JSON[kdata] as! NSDictionary
                     let accounts = JSON[kaccounts_found] as! Int
                     if accounts == 0 {
-                        GIDSignIn.sharedInstance().signOut()
+//                        GIDSignIn.sharedInstance().signOut()
                         Utility.showAlertWithSingleOption(controller: self, title: "", message: kNo_accounts_found_against_this_email, preferredStyle: .alert, buttonText: kOK, buttonHandler: nil)
                     } else if accounts == 1 {
                         let session = Session.getInstance()
@@ -343,7 +349,7 @@ extension LoginViewController: WebManagerDelegate {
                     let data = JSON[kdata] as! NSDictionary
                     let accounts = JSON[kaccounts_found] as! Int
                     if accounts == 0 {
-                        GIDSignIn.sharedInstance().signOut()
+//                        GIDSignIn.sharedInstance().signOut()
                         Utility.showAlertWithSingleOption(controller: self, title: "", message: kNo_accounts_found_against_this_email, preferredStyle: .alert, buttonText: kOK, buttonHandler: nil)
                     } else if accounts == 1 {
                         let session = Session.getInstance()
@@ -364,7 +370,7 @@ extension LoginViewController: WebManagerDelegate {
                         self.present(showUsersViewController, animated: true, completion: nil)
                     }
                 } else {
-                    GIDSignIn.sharedInstance().signOut()
+//                    GIDSignIn.sharedInstance().signOut()
                     Utility.showAlertWithSingleOption(controller: self, title: "", message: kNo_accounts_found_against_this_email, preferredStyle: .alert, buttonText: kOK, buttonHandler: nil)
                 }
             }

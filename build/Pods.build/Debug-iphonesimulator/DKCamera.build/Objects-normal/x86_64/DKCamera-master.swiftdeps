@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
+options: "e5ab5e9422a53ba45284d18bd4db99f7d23d5b063ef0ee7da37f5de7eaca9930"
+build_start_time: [1636916337, 842890977]
+build_end_time: [1636916344, 988963127]
+inputs:
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKCamera/DKCamera/DKCamera.swift": [1636834986, 242906808]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKCamera/DKCamera/DKCameraLocationManager.swift": [1636834986, 239062547]
+  "/Users/admin/fotki-mobile-ios-swift/Pods/DKCamera/DKCamera/DKCameraResource.swift": [1636834986, 239254951]

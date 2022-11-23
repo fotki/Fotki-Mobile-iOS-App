@@ -3,7 +3,7 @@
 //  SKPhotoBrowserTests
 //
 //  Created by Alexsander  on 4/2/16.
-//  Copyright © 2020 suzuki_keishi. All rights reserved.
+//  Copyright © 2016 suzuki_keishi. All rights reserved.
 //
 
 import XCTest

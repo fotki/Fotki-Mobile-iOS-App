@@ -3,7 +3,7 @@
 //  SKViewExample
 //
 //  Created by suzuki_keihsi on 2015/10/01.
-//  Copyright © 2020 suzuki_keishi. All rights reserved.
+//  Copyright © 2015 suzuki_keishi. All rights reserved.
 //
 
 import UIKit

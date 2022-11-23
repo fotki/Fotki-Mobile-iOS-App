@@ -1,5 +1,5 @@
 //
-//  Copyright © 2020 Schnaub. All rights reserved.
+//  Copyright © 2016 Schnaub. All rights reserved.
 //
 
 import ImageIO
@@ -41,7 +41,9 @@ final class ImageDownloader {
   
   private static func isAnimatedImage(_ data: Data) -> Bool {
     guard let imageSource = CGImageSourceCreateWithData(data as CFData, nil),
-          let imageType = CGImageSourceGetType(imageSource) else { return false }
+          let imageType = CGImageSourceGetType(imageSource) else {
+            return false
+          }
     return UTTypeConformsTo(imageType, kUTTypeGIF)
   }
 

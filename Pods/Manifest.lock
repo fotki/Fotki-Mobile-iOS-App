@@ -1,183 +1,101 @@
 PODS:
-  - Agrume (5.6.4):
+  - Agrume (5.8.0):
     - SwiftyGif
   - Alamofire (4.9.1)
   - AlamofireImage (3.6.0):
     - Alamofire (~> 4.9)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - CropViewController (2.5.2)
-  - DKCamera (1.6.6)
-  - DKImagePickerController (4.2.1):
-    - DKImagePickerController/Camera (= 4.2.1)
-    - DKImagePickerController/Core (= 4.2.1)
-    - DKImagePickerController/ImageDataManager (= 4.2.1)
-    - DKImagePickerController/InlineCamera (= 4.2.1)
-    - DKImagePickerController/PhotoEditor (= 4.2.1)
-    - DKImagePickerController/PhotoGallery (= 4.2.1)
-    - DKImagePickerController/Resource (= 4.2.1)
-  - DKImagePickerController/Camera (4.2.1):
+  - CropViewController (2.6.0)
+  - DKCamera (1.6.7)
+  - DKImagePickerController (4.3.2):
+    - DKImagePickerController/Camera (= 4.3.2)
+    - DKImagePickerController/Core (= 4.3.2)
+    - DKImagePickerController/ImageDataManager (= 4.3.2)
+    - DKImagePickerController/InlineCamera (= 4.3.2)
+    - DKImagePickerController/PhotoEditor (= 4.3.2)
+    - DKImagePickerController/PhotoGallery (= 4.3.2)
+    - DKImagePickerController/Resource (= 4.3.2)
+  - DKImagePickerController/Camera (4.3.2):
     - DKCamera
     - DKImagePickerController/Core
-  - DKImagePickerController/Core (4.2.1):
+  - DKImagePickerController/Core (4.3.2):
     - DKImagePickerController/ImageDataManager
     - DKImagePickerController/Resource
-  - DKImagePickerController/ImageDataManager (4.2.1)
-  - DKImagePickerController/InlineCamera (4.2.1):
+  - DKImagePickerController/ImageDataManager (4.3.2)
+  - DKImagePickerController/InlineCamera (4.3.2):
     - DKCamera
     - DKImagePickerController/Core
-  - DKImagePickerController/PhotoEditor (4.2.1):
+  - DKImagePickerController/PhotoEditor (4.3.2):
     - CropViewController (~> 2.5)
     - DKImagePickerController/Core
-  - DKImagePickerController/PhotoGallery (4.2.1):
+  - DKImagePickerController/PhotoGallery (4.3.2):
     - DKImagePickerController/Core
     - DKPhotoGallery
-  - DKImagePickerController/Resource (4.2.1)
-  - DKPhotoGallery (0.0.14):
-    - DKPhotoGallery/Core (= 0.0.14)
-    - DKPhotoGallery/Model (= 0.0.14)
-    - DKPhotoGallery/Preview (= 0.0.14)
-    - DKPhotoGallery/Resource (= 0.0.14)
+  - DKImagePickerController/Resource (4.3.2)
+  - DKPhotoGallery (0.0.17):
+    - DKPhotoGallery/Core (= 0.0.17)
+    - DKPhotoGallery/Model (= 0.0.17)
+    - DKPhotoGallery/Preview (= 0.0.17)
+    - DKPhotoGallery/Resource (= 0.0.17)
     - SDWebImage
-    - SDWebImageFLPlugin
-  - DKPhotoGallery/Core (0.0.14):
+    - SwiftyGif
+  - DKPhotoGallery/Core (0.0.17):
     - DKPhotoGallery/Model
     - DKPhotoGallery/Preview
     - SDWebImage
-    - SDWebImageFLPlugin
-  - DKPhotoGallery/Model (0.0.14):
+    - SwiftyGif
+  - DKPhotoGallery/Model (0.0.17):
     - SDWebImage
-    - SDWebImageFLPlugin
-  - DKPhotoGallery/Preview (0.0.14):
+    - SwiftyGif
+  - DKPhotoGallery/Preview (0.0.17):
     - DKPhotoGallery/Model
     - DKPhotoGallery/Resource
     - SDWebImage
-    - SDWebImageFLPlugin
-  - DKPhotoGallery/Resource (0.0.14):
+    - SwiftyGif
+  - DKPhotoGallery/Resource (0.0.17):
     - SDWebImage
-    - SDWebImageFLPlugin
-  - ESPullToRefresh (2.9.2)
-  - Fabric (1.10.2)
-  - FBSDKCoreKit (6.0.0):
-    - FBSDKCoreKit/Basics (= 6.0.0)
-    - FBSDKCoreKit/Core (= 6.0.0)
-  - FBSDKCoreKit/Basics (6.0.0)
-  - FBSDKCoreKit/Core (6.0.0):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (6.0.0):
-    - FBSDKLoginKit/Login (= 6.0.0)
-  - FBSDKLoginKit/Login (6.0.0):
-    - FBSDKCoreKit (~> 6.0.0)
-  - FBSDKShareKit (6.0.0):
-    - FBSDKShareKit/Share (= 6.0.0)
-  - FBSDKShareKit/Share (6.0.0):
-    - FBSDKCoreKit (~> 6.0.0)
-  - FirebaseAnalytics (3.9.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCore (3.6.0):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - FLAnimatedImage (1.0.12)
-  - Google/Core (3.1.0):
-    - FirebaseAnalytics (~> 3.2)
-  - Google/SignIn (3.1.0):
-    - Google/Core
-    - GoogleSignIn (~> 4.0)
-  - GoogleSignIn (4.4.0):
-    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
-    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.2.2):
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - GoogleToolboxForMac/Defines (2.2.2)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.2)":
-    - GoogleToolboxForMac/DebugUtils (= 2.2.2)
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.2)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.2.2)"
-  - GTMSessionFetcher/Core (1.3.1)
-  - SDWebImage (5.5.2):
-    - SDWebImage/Core (= 5.5.2)
-  - SDWebImage/Core (5.5.2)
-  - SDWebImageFLPlugin (0.3.0):
-    - FLAnimatedImage (>= 1.0.11)
-    - SDWebImage/Core (~> 5.0)
+    - SwiftyGif
+  - ESPullToRefresh (2.9.3)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - SideMenuController (0.2.4)
-  - SwiftyGif (5.2.0)
+  - SwiftyGif (5.4.1)
 
 DEPENDENCIES:
   - Agrume
+  - Alamofire
   - AlamofireImage (~> 3.1)
-  - Crashlytics
   - DKImagePickerController
   - ESPullToRefresh
-  - Fabric
-  - FBSDKCoreKit
-  - FBSDKLoginKit
-  - FBSDKShareKit
-  - Google/SignIn
   - SideMenuController
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Agrume
     - Alamofire
     - AlamofireImage
-    - Crashlytics
     - CropViewController
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
     - ESPullToRefresh
-    - Fabric
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - FBSDKShareKit
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - FLAnimatedImage
-    - Google
-    - GoogleSignIn
-    - GoogleToolboxForMac
-    - GTMSessionFetcher
     - SDWebImage
-    - SDWebImageFLPlugin
     - SideMenuController
     - SwiftyGif
 
 SPEC CHECKSUMS:
-  Agrume: bee63cb2ece28830c5664f8abbc8903414bd7f72
+  Agrume: 0b1a42b5bfbc3aa9f0801f2857d8df1138cf2951
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
-  DKCamera: d6fad4db4b25c00eefe6904e9c86a926034d0c62
-  DKImagePickerController: faddfe5b1240ed5fa05b6001169e60ed9b5b2df7
-  DKPhotoGallery: 0290d32343574f06eaa4c26f8f2f8a1035e916be
-  ESPullToRefresh: efed00d52597065e9a84e1e52fa444fdb1a1dee0
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  FBSDKCoreKit: fe738b172590e622c86735b45e20d196848b54df
-  FBSDKLoginKit: fa57df1b967fe0e147b25bede6ea4e9cdf4d64be
-  FBSDKShareKit: 210dcda2603042cf73f31983fc99df4dac06f1d8
-  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
-  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
-  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
-  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
-  SDWebImageFLPlugin: cf3f4ae49f249dd785129346fd61bbc8433a88cf
+  CropViewController: 7093b39ec3cb508531b22d35773e06cecd7378d8
+  DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
+  DKImagePickerController: b5eb7f7a388e4643264105d648d01f727110fc3d
+  DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
-  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
+  SwiftyGif: 6895c887f5551618a3c5dd3ecb512419105bacca
 
-PODFILE CHECKSUM: 278bc7aad979fe0a6cf5de837e71b5632f979d4c
+PODFILE CHECKSUM: 4cf2f066d83a938464baac4771adc07fbad80f46
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.11.2

@@ -3,7 +3,7 @@
 //  com.tbox.fotki
 //
 //  Created by Apple on 1/25/17.
-//  Copyright © 2020 Fotki. All rights reserved.
+//  Copyright © 2017 TBoxSolutionz. All rights reserved.
 //
 
 import UIKit
@@ -83,7 +83,6 @@ class UploadViewController: UIViewController {
     
     func showImageResizingAlert() {
         isOriginalUploadingOn = false
-       
         let alert = UIAlertController(title: kResize_photos_before_uploading, message: "", preferredStyle: UIAlertController.Style.alert)
         alert.setValue(Utility.getAttributedAlertText(regularText: kImage_resize_option_text), forKey: kattributedMessage)
         alert.addAction(UIAlertAction(title: kResized, style: UIAlertAction.Style.default, handler: { action in
@@ -111,6 +110,12 @@ class UploadViewController: UIViewController {
 //if DKAssetType.video.rawValue == 1 {
         if item.type == .video {
             item.fetchAVAsset { (video, info) in
+                if(video == nil){
+                    Utility.showAlertWithSingleOption(controller: self, title: "", message: kiCloud_error_message, preferredStyle: .alert, buttonText: kok) { UIAlertAction in
+                        self.dismiss(animated: false, completion: nil)
+                    }
+                    return;
+                }
                 let url = video?.value(forKeyPath: kURL)!
                 print(url!)
                 let videoData = (NSData(contentsOf: url as! URL) as Data?)
@@ -118,7 +123,19 @@ class UploadViewController: UIViewController {
                 WebManager.getInstance(delegate: self)?.uploadItemWithAlamofire(controller: self, data: videoData!, isVideo: true, image: self.videoPreviewImage(fileName: url as! URL)!, isGif: false, startUpload: self.startUpload)
                 }}
         } else {
-            item.fetchImageData( completeBlock: { data, info in
+            let options = PHImageRequestOptions()
+                    options.isSynchronous = false
+                    options.isNetworkAccessAllowed = true
+                    options.deliveryMode = .opportunistic
+                    options.version = .current
+                    options.resizeMode = .exact
+            item.fetchImageData(options:options, completeBlock: { data, info in
+                if(data == nil){
+                    Utility.showAlertWithSingleOption(controller: self, title: "", message: kiCloud_error_message, preferredStyle: .alert, buttonText: kok) { UIAlertAction in
+                        self.dismiss(animated: false, completion: nil)
+                    }
+                    return;
+                }
                 print("data format: \(data!.format)")
                 var image: UIImage?
                 if data!.format == "gif" {
@@ -258,6 +275,7 @@ class UploadViewController: UIViewController {
         }
     }
     @IBAction func openPhotoGallery(_ sender: Any) {
+        uploadComplete = false
         let pickerController = DKImagePickerController()
             pickerController.didSelectAssets = { (assets: [DKAsset]) in
                 if assets.count != 0 {
@@ -265,7 +283,8 @@ class UploadViewController: UIViewController {
                     self.newAsset = true
                     self.uploadComplete = false
                     //pickerController.deselectAll()
-                    pickerController.deselectAllAssets()
+                    pickerController.deselectAll()
+//                    pickerController.deselectAllAssets()
                    // deselectAllAssets()   deselectAll()
                     self.setInitialView()
                 }
